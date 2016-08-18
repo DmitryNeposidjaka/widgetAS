@@ -1,0 +1,29 @@
+<html>
+<head>
+		<title>canvasExample</title>
+        <meta charset='utf-8' />
+		     <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+		</head>
+<body>
+<div>push</div>
+<p></p>
+
+</body>
+
+<script type="text/javascript" >
+$('document').ready(function(){
+$('div').on('click',function(e){
+	$.ajax({
+		type: 'POST',
+		url: '../widget/index.php?action=sample2',
+		data: 'query=dfgdfg',
+		dataType: 'json',
+		success: function(data){
+		$('dody').html(data);
+		console.log(data);
+		}
+	})
+})
+})
+</script>
+</html>

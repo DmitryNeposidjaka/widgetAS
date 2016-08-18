@@ -1,0 +1,60 @@
+<!doctype>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Enter</title>		
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
+<script>
+var onWidjet = {};
+onWidjet.on = 0;
+onWidjet.On = function(){
+		if(this.on == 0){
+				var widgetLoad = document.getElementById('iframeid');
+				widgetLoad.src = 'body.html';
+				var interfase = document.getElementById('interfase');
+				var buttonCancel = document.createElement('input')
+				buttonCancel.type = 'button';
+				buttonCancel.value = 'Off';
+				buttonCancel.id = 'widgetOff';
+				buttonCancel.onclick = function(){
+				onWidjet.Off();
+				};
+				interfase.appendChild(buttonCancel);
+				this.on = 1;
+		}else{
+			console.log(0);
+			return false;
+		}
+}
+onWidjet.Off = function(){
+			//document.getElementById('widgetOff').onclick = function(){
+			var widget = document.getElementById('iframeid');
+			widget.src = '';
+			this.on = 0;
+			var widgetOff = document.getElementById('widgetOff');
+			widgetOff.remove();
+			//}
+}
+/*
+window.onload = function(){
+	document.getElementById('widgetOff').onclick = function(){
+			var widget = document.getElementById('iframeid');
+			widget.src = '';
+			
+	}
+}*/
+</script>
+</head>
+<body>
+<p>
+<div id="interfase">
+<input type="button" id="widgetOn" value="Widget" onclick="onWidjet.On()">
+
+</div>
+</p>
+<div style="width:1000px; height:700px; border:1px double black" onclick="getPosition"><iframe name="fr1"  id="iframeid"  scrolling="auto" style="width:99%;height:99%" src=""></iframe>
+</div>
+</body>
+</html>
